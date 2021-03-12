@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokemonService {
 
-  baseUrl = 'https://pokewiboo.herokuapp.com/';
+  baseUrl = 'https://pokeapi.co/api/v2';
 
   constructor(private http: HttpClient) { }
 

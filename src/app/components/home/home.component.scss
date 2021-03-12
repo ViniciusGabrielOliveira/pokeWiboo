@@ -1,0 +1,23 @@
+@import "../../../assets/styles/variables.scss";
+
+
+.containerHome{
+  background-color: $purpleLight;
+  padding: 0 15%;
+}
+
+.containerList{
+  background-color: $purpleMedium;
+  padding: 2%;
+}
+
+.containerDetail{
+  background-color: $purpleMedium;
+  padding: 2%;
+}
+
+@media screen and (max-width: 600px) {
+  .containerHome{
+    padding: 0 2%;
+  }
+}

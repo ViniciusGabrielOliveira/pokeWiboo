@@ -1,0 +1,22 @@
+<mat-card  *ngIf="pokemon.name" class="pokemon-card">
+  <mat-toolbar-row  class="header-card-container" fxLayout="row">
+    <div  class="avatar-detail">
+      <img src="{{pokemon.sprites.front_default}}" alt="" height="100%">
+    </div >
+    <h1 class="title-detail" style="text-transform: capitalize"> {{pokemon.name}} </h1 >
+  </mat-toolbar-row >
+  <mat-card-content>
+    <div>
+      <h2>Habilidades:</h2>
+      <ng-container *ngFor="let ability of pokemon.abilities" >
+        <p>• {{ability.ability.name}}</p>
+      </ng-container>
+    </div>
+    <div>
+      <h2>Tipos:</h2>
+      <ng-container *ngFor="let type of pokemon.types" >
+        <p>• {{type.type.name}}</p>
+      </ng-container>
+    </div>
+  </mat-card-content>
+</mat-card>

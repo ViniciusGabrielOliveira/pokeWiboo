@@ -1,0 +1,22 @@
+@import "../../../assets/styles/variables.scss";
+
+.mat-toolbar{
+  background-color: $purple;
+
+  img:hover{
+    cursor: pointer;
+  }
+
+  h1 {
+    padding: 1%;
+    color: $purpleLight;
+    font-family: 'Gudea', sans-serif;
+  }
+
+  h1:hover{
+    cursor: pointer;
+  }
+}
+
+
+

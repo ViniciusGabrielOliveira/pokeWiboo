@@ -1,18 +1,18 @@
 <mat-form-field>
   <mat-label>Pesquisar</mat-label>
-  <input matInput [(ngModel)]="nameSearch" (input)="search()" placeholder="Ex. Pikachu" #input>
+  <input matInput [(ngModel)]="nameSearch" (ngModelChange)="search()" placeholder="Ex. Pikachu">
 </mat-form-field>
 <ng-container *ngFor="let pokemon of results" >
   <mat-card  *ngIf="pokemon.name" class="pokemon-card" (click)="goToPokemon(pokemon.url)">
     <mat-card-header>
-      <div  mat-card-avatar  class="avatar">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{getIdPokemon(pokemon.url)}}.png" alt="" height="100%">
+      <div  mat-card-avatar  class="avatar" >
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{getIdPokemon(pokemon.url)}}.png" alt="..." height="100%">
       </div >
       <mat-card-title style="text-transform: capitalize"> {{pokemon.name}} </mat-card-title >
     </mat-card-header >
   </mat-card>
 </ng-container>
-<div class="button-add-container">
+<div class="button-add-container" *ngIf="results.length > 14">
   <button mat-fab (click)="addList()">
     <mat-icon>add</mat-icon>
   </button>

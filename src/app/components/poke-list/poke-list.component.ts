@@ -13,10 +13,10 @@ export class PokeListComponent implements OnInit {
   displayedColumns: string[] = ['name'];
   data: any[] = [];
   results: any[] = [];
-  dataSource = new MatTableDataSource<any>(this.data);
+  filtered: any[] = [];
   nameSearch = '';
   addListStart = 0;
-  addListEnd = 5;
+  addListEnd = 15;
 
   constructor(private pokeService: PokemonService, private router: Router) { }
 
@@ -29,46 +29,55 @@ export class PokeListComponent implements OnInit {
   }
 
   getPokemons(): void {
-
     this.pokeService.getPokemons('/pokemon?limit=1118').subscribe(
       (response: any) => {
         this.data = response.results;
-        this.rangeArray(0, 5, this.data);
+        this.filtered = response.results;
+        this.results = this.getRangeArray(this.data);
       },
       (error: any) => {
       }
 
     );
-  }
+  };
 
   search(): void{
     this.addListStart = 0;
-    this.addListEnd = 5;
+    this.addListEnd = 15;
     this.results = [];
-    if (this.nameSearch !== ''){
-      this.data = this.data.filter(res => {
-        return res.name.toLocaleLowerCase().match(this.nameSearch.toLocaleLowerCase());
-      });
-      this.rangeArray(0, 5, this.data);
-    }else if (this.nameSearch === ''){
-      this.ngOnInit();
-    }
-  }
+    this.filtered = [];
 
-  rangeArray(start: number, end: number, array: any[]): void{
-    for (let i = start; i < end; i++){
+    this.filtered = this.data.filter(res => {
+      return res.name.toLocaleLowerCase().match(this.nameSearch.toLocaleLowerCase());
+    });
+
+    this.results = this.getRangeArray(this.filtered);
+  };
+
+  getRangeArray(array: any[]): any[]{
+    let res = [];
+    for (let i = 0; i < (array.length < 15 ? array.length : 15); i++){
+      res.push(array[i]);
+    };
+    return res;
+  };
+
+  addRangeArray(start: number, end: number, array: any[]): void{
+
+    for (let i = start; i < (end - 1 > array.length ? array.length : end); i++){
       this.results.push(array[i]);
-    }
-  }
+    };
+  };
 
   goToPokemon(url: string): void{
     this.router.navigateByUrl(`home/${this.getIdPokemon(url)}`);
-  }
+    window.scroll(0, 0);
+  };
 
   addList(): void{
-    this.addListStart = this.addListStart + 5;
-    this.addListEnd = this.addListEnd + 5;
-    this.rangeArray(this.addListStart, this.addListEnd, this.data);
-  }
+    this.addListStart = this.addListEnd;
+    this.addListEnd = (this.filtered.length - this.addListEnd) < 15 ? this.filtered.length : this.addListEnd + 15;
+    this.addRangeArray(this.addListStart, this.addListEnd, this.filtered);
+  };
 
 }

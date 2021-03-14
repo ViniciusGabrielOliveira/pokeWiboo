@@ -18,7 +18,7 @@ Ferramentas:
 
 Conceito:
 <h1 align="center">
-  <img src="https://github.com/ViniciusGabrielOliveira/pokeWiboo/blob/master/src/assets/images/poxedex.png" />
+  <img src="https://github.com/ViniciusGabrielOliveira/pokeWiboo/blob/master/src/assets/images/Conceito.JPG?raw=true" />
 </h1>
 
 Sua aplicação deverá carregar uma tela igual ao conceito. A REST API usada será a https://
@@ -52,7 +52,7 @@ REST, tal como Observables da biblioteca RxJS.
 ## Resultado
 
 <h1 align="center">
-  <img src="https://github.com/ViniciusGabrielOliveira/pokeWiboo/blob/master/src/assets/images/poxedex.png" />
+  <img src="https://github.com/ViniciusGabrielOliveira/pokeWiboo/blob/master/src/assets/images/Resultado.JPG?raw=true" />
 </h1>
 
 Este é o resultado do projeto.

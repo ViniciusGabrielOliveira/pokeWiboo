@@ -3,7 +3,7 @@
   <input matInput [(ngModel)]="nameSearch" (ngModelChange)="search()" placeholder="Ex. Pikachu">
 </mat-form-field>
 <ng-container *ngFor="let pokemon of results" >
-  <mat-card  *ngIf="pokemon.name" class="pokemon-card" (click)="goToPokemon(pokemon.url)">
+  <mat-card  *ngIf="pokemon.name" class="pokemon-card" (click)="goToPokemon(pokemon.name)">
     <mat-card-header>
       <div  mat-card-avatar  class="avatar" >
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{getIdPokemon(pokemon.url)}}.png" alt="..." height="100%">

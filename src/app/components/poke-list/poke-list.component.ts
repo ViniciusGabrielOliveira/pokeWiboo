@@ -27,17 +27,11 @@ export class PokeListComponent implements OnInit {
     return url.split('/')[6];
   }
 
+
   async getPokemons(): Promise<void> {
 
-    const count = this.pokeService.getPokemons('/pokemon').subscribe(
-      async (response1: any) => {
-        return await response1.count;
-      }
-    );
-    console.log(count);
-    this.pokeService.getPokemons(`/pokemon?limit=${count}`).subscribe(
+    this.pokeService.getPokemons(`/pokemon?limit=1118`).subscribe(
       (response: any) => {
-        console.log(console.log(`/pokemon?limit=${count}`));
         this.data = response.results;
         this.filtered = response.results;
         this.results = this.getRangeArray(this.data);

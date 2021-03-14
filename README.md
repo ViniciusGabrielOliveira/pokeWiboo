@@ -55,6 +55,7 @@ REST, tal como Observables da biblioteca RxJS.
   <img src="https://github.com/ViniciusGabrielOliveira/pokeWiboo/blob/master/src/assets/images/Resultado.JPG?raw=true" />
 </h1>
 
+• https://pokewiboo.herokuapp.com/
 
 Algumas considerações:
 
